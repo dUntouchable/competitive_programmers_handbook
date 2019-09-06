@@ -6,6 +6,9 @@
 #
 import math
 
+#
+# through recursion and memoization
+#
 def solve(total, coins, arr):
     if total < 0:
         return math.inf
@@ -21,6 +24,20 @@ def solve(total, coins, arr):
 
     arr[total] = min_coins
     return min_coins
+
+#
+# iterative way, memoization
+#
+def solve_iter(total, coins, arr):
+    if total == 0:
+        arr[total] = 0
+
+    for i in range(1, len(arr)):
+        arr[i] = math.inf
+        for c in coins:
+            if i-c >= 0:
+                arr[i] = min(arr[i], arr[i-c]+1)
+
 
 coins = [1, 3, 4]
 total = 10
