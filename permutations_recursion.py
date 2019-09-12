@@ -1,8 +1,10 @@
 #
-# Generating Permutations
+# Generating Permutations by recursion
 #
-
+count = 0
 def permute(arr, l):
+    global count
+    count += 1
     if l == len(arr):
         print(arr)
         return
@@ -14,3 +16,4 @@ def permute(arr, l):
 
 arr = [1,2,3]
 permute(arr, 0)
+print("Total func calls ", count)
